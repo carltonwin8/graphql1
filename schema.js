@@ -5,15 +5,6 @@ import {
   GraphQLList,
 } from 'graphql';
 
-import fetch from 'node-fetch';
-
-const BASE_URL = 'http://localhost:8765'
-
-function getPersonByURL(relativeURL) {
-  return fetch(`${BASE_URL}${relativeURL}`)
-    .then(res => res.json());
-}
-
 const PersonType = new GraphQLObjectType({
   name: 'Person',
   description: '...',
@@ -30,8 +21,8 @@ const PersonType = new GraphQLObjectType({
     id: {type: GraphQLString},
     friends: {
       type: new GraphQLList(PersonType),
-      resolve: (person) =>
-        person.friends.map(getPersonByURL)
+      resolve: (person, args, {loaders}) =>
+        loaders.person.loadMany(person.friends)
     }
   }),
 });
@@ -45,8 +36,8 @@ const QueryType = new GraphQLObjectType({
       args: {
         id: {type: GraphQLString}
       },
-      resolve: (root, args) =>
-        getPersonByURL(`/person/${args.id}`)
+      resolve: (root, args, {loaders}) =>
+        loaders.person.load(`/person/${args.id}`)
     }
   })
 })
