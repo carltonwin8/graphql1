@@ -4,7 +4,6 @@ Following the tutorial
 [here](https://www.youtube.com/watch?v=UBGzsb2UkeY&list=WL&index=17&t=216s).
 
   - Start code with `npm run run`.
-  - Then start server with `babel-node index.js`.
 
 The following query at
 http://localhost:9876/graphiql
