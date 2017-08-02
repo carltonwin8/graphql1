@@ -1,0 +1,20 @@
+{
+  "name": "tutorial1",
+  "version": "1.0.0",
+  "description": "Following the tutorial [here](https://www.youtube.com/watch?v=UBGzsb2UkeY&list=WL&index=17&t=216s).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carlton Joseph",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-graphql": "^0.6.7",
+    "graphql": "^0.10.5",
+    "node-fetch": "^1.7.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
