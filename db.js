@@ -33,7 +33,7 @@ app.get('/person/:id', function (req, res) {
   if (req.params.id in people) {
     const r = JSON.stringify(people[req.params.id]);
     const p = `{"data": {"person": ${r}}}`;
-    console.log(`${p}`);
+    //console.log(`${p}`);
     res.send(`${r}`);
   }
   else
